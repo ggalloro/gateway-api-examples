@@ -1,4 +1,4 @@
- #ILB with multiple certificates, fixed IP and global access#
+ # ILB with multiple certificates, fixed IP and global access
 
 You can use the example manifests in this folder to configure a Gateway and an L7 Google Internal Load balancer, to expose a single service, accessible with 2 hostnames ([store.example.com](store.example.com), [store2.example.com](store2.example.com)) from a GKE cluster and terminating TLS with  2 certificates (one for each hostname) using Kubernetes secrets named `store-example-com` and `store2-example-com.`
 
