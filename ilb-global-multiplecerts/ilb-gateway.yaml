@@ -9,6 +9,12 @@ spec:
     protocol: HTTPS
     port: 443
     hostname: store.example.com
+    allowedRoutes:
+      namespaces:
+        from: Selector
+        selector:
+          matchLabels:
+            gateway-access: "true"    
     tls:
       mode: Terminate
       certificateRefs:
@@ -17,6 +23,12 @@ spec:
     protocol: HTTPS
     port: 443
     hostname: store2.example.com
+    allowedRoutes:
+      namespaces:
+        from: Selector
+        selector:
+          matchLabels:
+            gateway-access: "true"    
     tls:
       mode: Terminate
       certificateRefs:
