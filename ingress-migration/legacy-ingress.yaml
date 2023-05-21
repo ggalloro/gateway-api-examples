@@ -6,7 +6,6 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: legacy-ingress-address
     kubernetes.io/ingress.class: "gce-internal"
   name: legacy-ingress
-  namespace: legacy
 spec:
   rules:
   - http:

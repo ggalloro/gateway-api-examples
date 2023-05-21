@@ -6,7 +6,6 @@ spec:
   parentRefs:
   - kind: Gateway
     name: internal-http
-    namespace: infra
   hostnames:
   - "legacy.example.com"
   - "legacy.agilework.info"

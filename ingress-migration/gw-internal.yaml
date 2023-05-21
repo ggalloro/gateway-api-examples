@@ -2,20 +2,13 @@ kind: Gateway
 apiVersion: gateway.networking.k8s.io/v1beta1
 metadata:
   name: internal-http
-  namespace: infra
 spec:
   gatewayClassName: gke-l7-rilb
   listeners:
   - name: legacy.example.com
     protocol: HTTPS
     port: 443
-    hostname: legacy.example.com
-    allowedRoutes:
-      namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            gateway-access: "true"    
+    hostname: legacy.example.com  
     tls:
       mode: Terminate
       certificateRefs:
@@ -24,12 +17,6 @@ spec:
     protocol: HTTPS
     port: 443
     hostname: legacy.agilework.info
-    allowedRoutes:
-      namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            gateway-access: "true"    
     tls:
       mode: Terminate
       certificateRefs:
