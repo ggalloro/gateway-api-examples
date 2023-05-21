@@ -19,7 +19,7 @@ spec:
     tls:
       mode: Terminate
       certificateRefs:
-      - name: legacy-example-com
+      - name: legacy.example.com
   - name: legacy.agilework.info
     protocol: HTTPS
     port: 443
@@ -33,7 +33,7 @@ spec:
     tls:
       mode: Terminate
       certificateRefs:
-      - name: legacy-agilework-info
+      - name: legacy.agilework.info
   addresses:
   - type: NamedAddress
     value: legacy-gw-address
