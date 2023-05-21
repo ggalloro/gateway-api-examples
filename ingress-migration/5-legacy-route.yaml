@@ -1,0 +1,17 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: legacy-internal
+  labels:
+    gateway: internal-http
+    namespace: infra
+spec:
+  parentRefs:
+  - name: internal-http
+  hostnames:
+  - "legacy.example.com"
+  - "legacy.agilework.info"
+  rules:
+  - backendRefs:
+    - name: legacy
+      port: 8080
