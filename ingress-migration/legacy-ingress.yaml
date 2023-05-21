@@ -11,9 +11,18 @@ spec:
   rules:
   - http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: legacy
+            port:
+              number: 8080
+      - path: /checkout
+        pathType: Prefix
+        backend:
+          service:
+            name: legacy-checkout
             port:
               number: 8080
   tls:

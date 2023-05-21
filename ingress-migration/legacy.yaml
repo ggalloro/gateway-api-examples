@@ -4,23 +4,24 @@ metadata:
   name: legacy
   labels:
     gateway-access: "true"
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: legacy
+  name: legacy-checkout
   namespace: legacy
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: legacy
-      version: v1
+      version: checkout
   template:
     metadata:
       labels:
         app: legacy
-        version: v1
+        version: checkout
     spec:
       containers:
       - name: whereami
@@ -29,17 +30,17 @@ spec:
           - containerPort: 8080
         env:
         - name: METADATA
-          value: "legacy"
+          value: "checkout"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: legacy
+  name: legacy-checkout
   namespace: legacy
 spec:
   selector:
     app: legacy
-    version: v1
+    version: checkout
   ports:
   - port: 8080
     targetPort: 8080

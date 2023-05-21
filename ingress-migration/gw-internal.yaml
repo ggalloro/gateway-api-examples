@@ -9,7 +9,7 @@ spec:
   - name: legacy.example.com
     protocol: HTTPS
     port: 443
-    hostname: store.example.com
+    hostname: legacy.example.com
     allowedRoutes:
       namespaces:
         from: Selector

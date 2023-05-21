@@ -2,16 +2,21 @@ kind: HTTPRoute
 apiVersion: gateway.networking.k8s.io/v1beta1
 metadata:
   name: legacy-internal
-  labels:
-    gateway: internal-http
-    namespace: infra
 spec:
   parentRefs:
-  - name: internal-http
+  - kind: Gateway
+    name: internal-http
+    namespace: infra
   hostnames:
   - "legacy.example.com"
   - "legacy.agilework.info"
   rules:
   - backendRefs:
     - name: legacy
+      port: 8080
+  - matches:
+    - path:
+        value: /checkout
+    backendRefs:
+    - name: legacy-checkout
       port: 8080
